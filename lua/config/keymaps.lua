@@ -42,3 +42,10 @@ vim.api.nvim_set_keymap('n', '<C-S-w>', ':bw<CR>', keymap_options('Wipe out curr
 
 -- Delete trailing spaces in every line
 vim.api.nvim_buf_set_keymap(0, 'n', '<leader>x', ':silent! %s/\\s\\+$//e<CR>', keymap_options('Delete all trailing spaces', all_silent))
+
+
+-- [[ User defined functions ]] 
+local utils = require("config.functions") 
+
+-- Switch between camel and sanke case
+vim.keymap.set('n', '<Leader>k', utils.switch_case, keymap_options('Switch word under cursor from CamMel to snake_case', all_silent))
