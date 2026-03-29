@@ -10,6 +10,8 @@ vim.g.loaded_netrwPlugin = 1
 -- Set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
+---@module 'lazy'
+---@type LazySpec
 return {}
 
 
