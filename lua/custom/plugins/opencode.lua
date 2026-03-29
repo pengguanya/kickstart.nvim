@@ -24,18 +24,6 @@ return {
     },
   },
   config = function()
-    ---@type opencode.Opts
-    vim.g.opencode_opts = {
-      provider = {
-        enabled = 'tmux',
-        tmux = {
-          options = '-h',
-          focus = false,
-          allow_passthrough = false,
-        },
-      },
-    }
-
     vim.o.autoread = true
 
     -- Keymaps using <leader>n prefix to avoid conflicts
