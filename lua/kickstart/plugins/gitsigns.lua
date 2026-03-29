@@ -10,7 +10,13 @@ return {
   ---@type Gitsigns.Config
   ---@diagnostic disable-next-line: missing-fields
   opts = {
+    attach_to_untracked = false,
     on_attach = function(bufnr)
+      -- Don't attach to special buffers (CodeCompanion, etc.)
+      local bufname = vim.api.nvim_buf_get_name(bufnr)
+      if bufname:match 'codecompanion' or bufname:match 'copilot' then
+        return false
+      end
       local gitsigns = require 'gitsigns'
 
       local function map(mode, l, r, opts)

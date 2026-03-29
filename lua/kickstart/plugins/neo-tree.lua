@@ -18,6 +18,10 @@ return {
   ---@module 'neo-tree'
   ---@type neotree.Config
   opts = {
+    window = {
+      width = 30,
+      min_width = 15,
+    },
     filesystem = {
       window = {
         mappings = {

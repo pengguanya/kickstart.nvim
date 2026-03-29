@@ -51,3 +51,17 @@ vim.keymap.set('n', '<Leader>k', utils.switch_case, keymap_options('Switch word 
 
 --- Toggle NeoTree
 vim.keymap.set('n', '<leader>g', '<Cmd>Neotree toggle<CR>', { desc = 'Toggle NeoTree' })
+
+-- Copilot keymaps
+vim.keymap.set('n', '<leader>ce', '<Cmd>Copilot enable<CR>', keymap_options('[C]opilot [E]nable', all_silent))
+vim.keymap.set('n', '<leader>cd', '<Cmd>Copilot disable<CR>', keymap_options('[C]opilot [D]isable', all_silent))
+vim.keymap.set('n', '<leader>ct', function()
+  local status = vim.fn['copilot#Enabled']()
+  if status == 1 then
+    vim.cmd('Copilot disable')
+    print('Copilot disabled')
+  else
+    vim.cmd('Copilot enable')
+    print('Copilot enabled')
+  end
+end, keymap_options('[C]opilot [T]oggle', all_silent))
